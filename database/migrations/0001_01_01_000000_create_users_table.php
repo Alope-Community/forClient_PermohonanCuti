@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->text('alamat');
+            $table->string('no_telepon');
+            $table->enum('role', ['karyawan', 'asisten_manajer_unit', 'manajer_unit', 'asisten_manajer_sdm', 'manajer_sdm', 'direktur_operational', 'super_admin'])->default('karyawan');
             $table->rememberToken();
             $table->timestamps();
         });
