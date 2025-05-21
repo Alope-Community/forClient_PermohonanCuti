@@ -44,7 +44,7 @@ class AuthController extends Controller
                     case 'direktur_operational':
                         dd('Login sebagai Direktur Operasional');
                     case 'super_admin':
-                        dd('Login sebagai Super Admin');
+                        return redirect()->route('dashboard');
                     default:
                         return redirect()->back()->with('error', 'Email Atau Password Salah');
                 }
@@ -52,5 +52,13 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect()->route('login')->with('success', 'Berhasil logout.');
     }
 }

@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <aside id="sidebar">
+    <aside id="sidebar" class="expand">
         <div class="d-flex" style="padding-top: 20px;">
             <button class="toggle-btn" type="button">
                 <i class="lni lni-grid-alt"></i>
@@ -11,7 +11,7 @@
          <hr class="text-white">
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('dashboard') }}" class="sidebar-link">
                      <i class="lni lni-grid-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -50,13 +50,13 @@
                 <hr class="text-white">
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('user.profile') }}" class="sidebar-link">
                     <i class="lni lni-users"></i>
                     <span>Profile</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('logout') }}" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -66,7 +66,6 @@
 
 <script>
     const hamBurger = document.querySelector(" .toggle-btn");
-
     hamBurger.addEventListener("click", function() {
         document.querySelector("#sidebar").classList.toggle("expand");
     });
