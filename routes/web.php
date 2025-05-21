@@ -11,9 +11,7 @@ Route::middleware('guest')->group(function () {
     Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login.post');
 });
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-// });
+
 Route::get('/dashboard', function () {
     return view('section.dashboard.index');
 });

@@ -1,10 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-<<<<<<< HEAD
-
-@endsection
-=======
 <div class="main p-4 ms-3 mt-3">
     <h1 class="mb-4 fw-bold">Hallo, Admin</h1>
     <hr class="text-black">
@@ -51,4 +47,3 @@
     </div>
 </div>
 @endsection
->>>>>>> 459b21d82865f01824dec94e4a93b20e4ce41d70

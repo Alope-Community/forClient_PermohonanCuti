@@ -63,58 +63,7 @@
             </li>
         </ul>
     </aside>
-<<<<<<< HEAD
-    <div class="main p-3 ms-3 mt-3">
-        <h1 class="mb-4">Hallo, Admin</h1>
-        <hr class="text-black">
-        <div class="row g-3">
-            <!-- Card 1 -->
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body d-flex justify-content-between align-items-center h-100">
-                        <div>
-                            <div class="fw-medium">Karyawan</div>
-                            <div class="fs-4 fw-bold">150</div>
-                        </div>
-                        <i class="lni lni-users fs-1"></i>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-           <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body d-flex justify-content-between align-items-center h-100">
-                        <div>
-                            <div class="fw-medium">Karyawan</div>
-                            <div class="fs-4 fw-bold">150</div>
-                        </div>
-                        <i class="lni lni-users fs-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body d-flex justify-content-between align-items-center h-100">
-                        <div>
-                            <div class="fw-medium">Surat Balasan</div>
-                            <div class="fs-4 fw-bold">150</div>
-                        </div>
-                        <i class="lni lni-users fs-1"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-</div>
-=======
-
->>>>>>> 459b21d82865f01824dec94e4a93b20e4ce41d70
 <script>
     const hamBurger = document.querySelector(" .toggle-btn");
 
