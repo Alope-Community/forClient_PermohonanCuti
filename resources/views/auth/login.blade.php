@@ -97,7 +97,7 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" name="email" class="form-control shadow-sm"
-                            placeholder="Masukan Email Akun Anda" required />
+                            placeholder="Masukan Akun Email Anda" required />
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
