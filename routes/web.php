@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RiwayatCutiController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('user')->group(function(){
         Route::get('/', [ProfileController::class, 'index'])->name('user.profile');
         Route::get('/pengajuan', [PengajuanCutiController::class, 'index'])->name('user.pengajuan');
+        Route::get('/riwayat', [RiwayatCutiController::class, 'index'])->name('user.riwayat');
     });
 
 });

@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('user.riwayat')}}" class="sidebar-link">
                     <i class="lni lni-timer"></i>
                     <span>Riawayat Pengajuan Cuti</span>
                 </a>
