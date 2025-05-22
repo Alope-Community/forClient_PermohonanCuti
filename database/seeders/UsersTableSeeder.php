@@ -28,6 +28,7 @@ class UsersTableSeeder extends Seeder
             User::create([
                 'name' => ucfirst(str_replace('_', ' ', $role)),
                 'email' => $role . '@gmail.com',
+                'gender' => 'Pria',
                 'password' => Hash::make('password'),
                 'alamat' => 'Alamat dummy untuk ' . $role,
                 'no_telepon' => '08123456789' . $index,
