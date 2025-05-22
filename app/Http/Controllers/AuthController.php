@@ -17,12 +17,8 @@ class AuthController extends Controller
     {
         try {
             $request->validate([
-                'email' => 'required|email|exists:users,email',
+                'email' => 'required|email',
                 'password' => 'required',
-            ], [
-                'email.required' => 'Email Wajib Di Isi',
-                'email.exists' => 'User Tidak Ditemukan',
-                'password.required' => 'Password Wajib Di Isi',
             ]);
 
             $credentials = $request->only(['email', 'password']);
@@ -46,11 +42,13 @@ class AuthController extends Controller
                     case 'super_admin':
                         return redirect()->route('dashboard');
                     default:
-                        return redirect()->back()->with('error', 'Email Atau Password Salah');
+                        return redirect()->back()->withErrors(['error' => 'Email Atau Password Salah']);
                 }
+            } else {
+                return redirect()->back()->withErrors(['error' => 'Email Atau Password Salah']);
             }
         } catch (Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 

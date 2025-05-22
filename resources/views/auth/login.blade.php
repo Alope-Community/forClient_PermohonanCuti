@@ -85,9 +85,9 @@
         <div class="right-side">
             <div class="login-box">
                 <h2 class="mb-4 fw-bold text-dark">Login</h2>
-                @if (session('error'))
+                @if (session('errors'))
                     <div class="alert alert-danger alert-dismissible aler-sm fade show" role="alert">
-                        {{ session('error') }}
+                        {{ session('errors')->first('error') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
