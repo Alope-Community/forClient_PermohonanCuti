@@ -16,8 +16,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('auth/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::prefix('user')->group(function(){
+    Route::prefix('user')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('user.profile');
     });
-
 });
+route::get('/verifikasi-cuti', function () {
+    return view('section.verification.index');
+})->name('cuti.verifikasi');
