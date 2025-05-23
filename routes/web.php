@@ -26,6 +26,4 @@ Route::middleware('auth')->group(function () {
         Route::get('/surat-balasan', [DetailBalasanController::class, 'index'])->name('user.surat');
     });
 });
-route::get('/verifikasi-cuti', function () {
-    return view('section.verification.index');
-})->name('cuti.verifikasi');
+route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verivikasi'])->name('cuti.verifikasi');

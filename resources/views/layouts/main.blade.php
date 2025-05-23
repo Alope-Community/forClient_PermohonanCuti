@@ -20,7 +20,7 @@
         <x-sidebar />
 
         {{-- Content --}}
-        <div class="">
+        <div class="main p-4 ms-3 mt-3">
             @yield('content')
         </div>
     </div>

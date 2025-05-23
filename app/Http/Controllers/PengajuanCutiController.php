@@ -20,4 +20,8 @@ class PengajuanCutiController extends Controller
            return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function verifikasi(){
+        return view('section.verification.index');
+    }
 }
