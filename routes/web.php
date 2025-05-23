@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/', 'dashboard');
 
 Route::middleware('guest')->prefix('auth')->group(function () {
     Route::get('login', [AuthController::class, 'loginPage'])->name('login');
