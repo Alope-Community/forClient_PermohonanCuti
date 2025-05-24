@@ -56,6 +56,13 @@
                     <span>Verifikasi Cuti</span>
                 </a>
             </li>
+             <li class="sidebar-item">
+                <a href="{{ route('pengguna.jatah-cuti') }}"
+                    class="sidebar-link {{ request()->routeIs('user.profile') ? 'active' : '' }}">
+                    <i class="lni lni-timer"></i>
+                    <span>Jatah Cuti</span>
+                </a>
+            </li>
             <li class="sidebar-item">
                 <hr class="text-white">
             </li>

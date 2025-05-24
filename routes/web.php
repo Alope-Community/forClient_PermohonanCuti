@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailBalasanController;
+use App\Http\Controllers\JatahCutiController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatCutiController;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
         Route::get('{id}/edit', [UserController::class, 'edit'])->name('pengguna.edit');
         Route::put('{id}/update', [UserController::class, 'update'])->name('pengguna.update');
         Route::delete('{id}/destroy', [UserController::class, 'destroy'])->name('pengguna.delete');
+        Route::get('/cuti', [JatahCutiController::class, 'index'])->name('pengguna.jatah-cuti');
     });
 
     Route::prefix('pengajuan')->group(function(){
