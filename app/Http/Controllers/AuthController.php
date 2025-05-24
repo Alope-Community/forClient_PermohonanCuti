@@ -28,7 +28,7 @@ class AuthController extends Controller
 
                 switch ($user->role) {
                     case 'karyawan':
-                        dd('Login sebagai Karyawan');
+                        return redirect()->route('dashboard');
                     case 'asisten_manajer_unit':
                         dd('Login sebagai Asisten Manajer Unit');
                     case 'manajer_unit':

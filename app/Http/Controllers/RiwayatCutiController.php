@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuti;
 use Illuminate\Http\Request;
 
 class RiwayatCutiController extends Controller
 {
-   public function index(){
+    public function index()
+    {
         try {
-            $user = auth()->user();
-            if (!$user) {
-                return redirect()->back()->with('error', 'User Not Defined');
-            }
+            $data = Cuti::where('users_id', auth()->user()->id)
+                ->with('user')
+                ->get();
 
+            // dd($data);
             return view('section.riwayatCuti.index', [
-                'user' => $user
+                'data' => $data
             ]);
         } catch (\Exception $e) {
-           return redirect()->back()->with('error', $e->getMessage());
+            dd($e);
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 }
