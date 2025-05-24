@@ -4,7 +4,10 @@
     <div class="container-fluid mt-4">
         <div class="row mb-3">
             <div class="col-6">
-                <h1 class="fw-bold">Data Jatah Cuti</h1>
+                <h1 class="fw-bold">Halo, Admin</h1>
+            </div>
+            <div class="col-6 text-end">
+                <a href="#" class="btn btn-sm btn-primary">+ Tambah</a>
             </div>
         </div>
         <hr class="text-black">
