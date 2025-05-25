@@ -12,4 +12,9 @@ class Cuti extends Model
     {
         return $this->belongsTo(User::class, 'users_id');
     }
+
+    public function riwayatCuti()
+    {
+        return $this->hasMany(RiwayatCuti::class, 'cuti_id');
+    }
 }
