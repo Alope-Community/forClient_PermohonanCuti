@@ -28,7 +28,11 @@ Route::middleware('auth')->group(function () {
         Route::get('{id}/edit', [UserController::class, 'edit'])->name('pengguna.edit');
         Route::put('{id}/update', [UserController::class, 'update'])->name('pengguna.update');
         Route::delete('{id}/destroy', [UserController::class, 'destroy'])->name('pengguna.delete');
-        Route::get('/cuti', [JatahCutiController::class, 'index'])->name('pengguna.jatah-cuti');
+    });
+
+    Route::prefix('jatah-cuti')->group(function(){
+          Route::get('', [JatahCutiController::class, 'index'])->name('jatah-cuti');
+          Route::post('', [JatahCutiController::class, 'store'])->name('jatah-cuti.store');
     });
 
     Route::prefix('pengajuan')->group(function(){

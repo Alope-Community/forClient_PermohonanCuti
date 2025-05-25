@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="main p-4 ms-3 mt-3">
-        <h1 class="mb-4 fw-bold">Halo, Admin</h1>
+         <x-header-sections/>
         <hr class="text-black">
         @if (session('sucsess'))
             <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
-            {{ session('sucsess') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {{ session('sucsess') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         <div class="card">
@@ -21,6 +21,7 @@
                                 <th>Tanggal Selesai</th>
                                 <th>Alasan</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +39,25 @@
                                                 <span class="badge bg-danger">Ditolak</span>
                                             @else
                                                 <span class="badge bg-warning text-dark">Menunggu</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($item->status == 'disetujui')
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
+                                                        id="aksiDropdown{{ $item->id }}" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        Aksi
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="aksiDropdown{{ $item->id }}">
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('pengguna.edit', $item->id) }}">Lihat Surat Balasan</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            @else
+                                                <span class="text-muted">Menunggu jawaban</span>
                                             @endif
                                         </td>
                                     </tr>

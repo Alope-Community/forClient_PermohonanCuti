@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="main p-4 ms-3 mt-3">
-        <h1 class="mb-4 fw-bold">Halo, Admin</h1>
+        <x-header-sections/>
         <hr class="text-black">
         <div class="mb-4 border-bottom pb-2">
             <h4 class="fw-bold text-dark">Detail Balasan</h4>

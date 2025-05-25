@@ -26,24 +26,7 @@ class AuthController extends Controller
             if (Auth::attempt($credentials)) {
                 $user = User::where('email', $request->email)->first();
 
-                switch ($user->role) {
-                    case 'karyawan':
-                        return redirect()->route('dashboard');
-                    case 'asisten_manajer_unit':
-                        dd('Login sebagai Asisten Manajer Unit');
-                    case 'manajer_unit':
-                        dd('Login sebagai Manajer Unit');
-                    case 'asisten_manajer_sdm':
-                        dd('Login sebagai Asisten Manajer SDM');
-                    case 'manajer_sdm':
-                        dd('Login sebagai Manajer SDM');
-                    case 'direktur_operational':
-                        dd('Login sebagai Direktur Operasional');
-                    case 'super_admin':
-                        return redirect()->route('dashboard');
-                    default:
-                        return redirect()->back()->withErrors(['error' => 'Email Atau Password Salah']);
-                }
+              return redirect()->route('dashboard');
             } else {
                 return redirect()->back()->withErrors(['error' => 'Email Atau Password Salah']);
             }

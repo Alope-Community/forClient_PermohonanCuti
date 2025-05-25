@@ -1,8 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="main p-4 ms-3 mt-3">
-        <h1 class="mb-4 fw-bold">Halo, Admin</h1>
+    <div class="main p-4 ms-3 mt-3"> <x-header-sections/>
         <hr class="text-black">
         <div class="d-flex justify-content-center align-items-center mt-5">
             <div class="card shadow-sm rounded p-5" style="width: 100%; max-width: 700px;">
