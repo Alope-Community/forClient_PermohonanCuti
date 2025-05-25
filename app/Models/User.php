@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cuti::class, 'users_id');
     }
+
+    public function jatahCuti(){
+        return $this->hasMany(JatahCuti::class, 'users_id');
+    }
 }

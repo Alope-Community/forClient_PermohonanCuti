@@ -34,21 +34,14 @@
                         <span>Pengajuan Cuti</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('pengajuan.riwayat') }}"
+                        class="sidebar-link {{ request()->routeIs('pengajuan.riwayat') ? 'active' : '' }}">
+                        <i class="lni lni-timer"></i>
+                        <span>Riawayat Pengajuan Cuti</span>
+                    </a>
+                </li>
             @endif
-            <li class="sidebar-item">
-                <a href="{{ route('pengajuan.riwayat') }}"
-                    class="sidebar-link {{ request()->routeIs('pengajuan.riwayat') ? 'active' : '' }}">
-                    <i class="lni lni-timer"></i>
-                    <span>Riawayat Pengajuan Cuti</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="{{ route('user.surat') }}"
-                    class="sidebar-link {{ request()->routeIs('user.surat') ? 'active' : '' }}">
-                    <i class="lni lni-comments"></i>
-                    <span>Surat Balasan</span>
-                </a>
-            </li>
             <li class="sidebar-item">
                 <a href="{{ route('cuti.verifikasi') }}"
                     class="sidebar-link {{ request()->routeIs('cuti.verifikasi') ? 'active' : '' }}">
@@ -56,13 +49,15 @@
                     <span>Verifikasi Cuti</span>
                 </a>
             </li>
-             <li class="sidebar-item">
-                <a href="{{ route('pengguna.jatah-cuti') }}"
-                    class="sidebar-link {{ request()->routeIs('user.profile') ? 'active' : '' }}">
-                    <i class="lni lni-timer"></i>
-                    <span>Jatah Cuti</span>
-                </a>
-            </li>
+            @if (auth()->user()->role == 'manajer_sdm' || auth()->user()->role == 'asisten_manajer_sdm' || auth()->user()->role == 'super_admin')
+                <li class="sidebar-item">
+                    <a href="{{ route('jatah-cuti') }}"
+                        class="sidebar-link {{ request()->routeIs('user.profile') ? 'active' : '' }}">
+                        <i class="lni lni-timer"></i>
+                        <span>Jatah Cuti</span>
+                    </a>
+                </li>
+            @endif
             <li class="sidebar-item">
                 <hr class="text-white">
             </li>

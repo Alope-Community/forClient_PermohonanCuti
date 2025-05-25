@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="main p-4 ms-3 mt-3">
-        <h1 class="mb-4 fw-bold">Halo, {{ $user->role }}</h1>
+        <h1 class="mb-4 fw-bold">
+             <x-header-sections/>
+        </h1>
         <hr class="text-black">
 
         <div class="d-flex justify-content-center align-items-center">
