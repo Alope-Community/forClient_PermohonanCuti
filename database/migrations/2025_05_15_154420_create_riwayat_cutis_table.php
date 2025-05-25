@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('cuti_id');
             $table->date('tanggal_update');
-             $table->enum('status', ['tolak', 'proses' ,'setujui'])->default('proses');
+            $table->enum('status', ['manajer-unit', 'manajer-sdm', 'direktur-operasional', 'menunggu', 'ditolak'])->default('menunggu');
             $table->text('keterangan');
             $table->timestamps();
         });
