@@ -54,28 +54,45 @@
                                                 Aksi
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">Edit</button></li>
-                                                <li><button class="dropdown-item text-danger" data-bs-toggle="modal"
-                                                        data-bs-target="#hapusModal">Delete</button></li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('jatah-cuti.edit', $item->id) }}">
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                                                        data-bs-target="#hapusModal{{ $item->id }}">Delete</button>
+                                                </li>
                                             </ul>
-                                        </div>
-                                        <div class="modal fade" id="hapusModal" tabindex="-1"
-                                            aria-labelledby="hapusModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="hapusModalLabel">Konfirmasi Hapus</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Tutup"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Apakah Anda yakin ingin menghapus data ini?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Batal</button>
-                                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                            <div class="modal fade" id="hapusModal{{ $item->id }}" tabindex="-1"
+                                                aria-labelledby="hapusModalLabel{{ $item->id }}"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title"
+                                                                id="hapusModalLabel{{ $item->id }}">
+                                                                Konfirmasi Hapus
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Apakah Anda yakin ingin menghapus pengguna
+                                                            <strong>{{ $item->users->name ?? '-' }}</strong>?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Batal</button>
+                                                            <form action="{{ route('jatah-cuti.destroy', $item->id) }}"
+                                                                method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Hapus</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,7 +132,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="tahun" class="form-label">Tahun</label>
-                            <input type="date" class="form-control" id="tahun" name="tahun"
+                            <input readonly type="date" class="form-control" id="tahun" name="tahun"
                                 value="{{ \Carbon\Carbon::now()->format('Y') . '-01-01' }}">
                         </div>
                         <div class="mb-3">

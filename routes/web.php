@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::prefix('jatah-cuti')->group(function () {
         Route::get('', [JatahCutiController::class, 'index'])->name('jatah-cuti');
         Route::post('', [JatahCutiController::class, 'store'])->name('jatah-cuti.store');
+        Route::get('{jatahCuti}/edit', [JatahCutiController::class, 'edit'])->name('jatah-cuti.edit');
+        Route::put('{jatahCuti}/update', [JatahCutiController::class, 'update'])->name('jatah-cuti.upadte');
+        Route::delete('{jatahCuti}/delete', [JatahCutiController::class, 'destroy'])->name('jatah-cuti.destroy');
     });
 
     Route::prefix('pengajuan')->group(function () {
@@ -43,6 +46,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('user')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('user.profile');
+        Route::put('{user}/update', [ProfileController::class, 'update'])->name('user.profile.update');
+        Route::put('{user}change-password', [ProfileController::class, 'changePassword'])->name('user.profile.changerPassword');
         Route::get('/surat-balasan', [DetailBalasanController::class, 'index'])->name('user.surat');
     });
     Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verifikasi'])->name('cuti.verifikasi');

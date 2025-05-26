@@ -54,4 +54,53 @@ class JatahCutiController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function edit(JatahCuti $jatahCuti){
+        $dataKaryawan = User::where('role', 'karyawan')->get();
+        return view('section.jatahCuti.edit', [
+            'data' => $jatahCuti,
+            'karyawan' => $dataKaryawan
+        ]);
+    }
+
+    public function update(Request $request, JatahCuti $jatahCuti)
+    {
+        try {
+            $request->validate([
+                'users_id' => 'required|exists:users,id',
+                'tahun' => 'required|date',
+                'total_jatah' => 'required|numeric',
+            ]);
+
+            // Cek apakah ada data jatah cuti lain dengan user dan tahun yang sama
+            $existing = JatahCuti::where('users_id', $request->users_id)
+                ->whereYear('tahun', \Carbon\Carbon::parse($request->tahun)->year)
+                ->where('id', '!=', $jatahCuti->id)
+                ->first();
+
+            if ($existing) {
+                return back()->with('error', 'User ini sudah memiliki jatah cuti untuk tahun tersebut.');
+            }
+
+            $jatahCuti->update([
+                'users_id' => $request->users_id,
+                'tahun' => $request->tahun,
+                'total_jatah' => $request->total_jatah,
+            ]);
+
+            return redirect()->route('jatah-cuti')->with('success', 'Data Jatah Cuti berhasil diupdate.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function destroy(JatahCuti $jatahCuti)
+    {
+        try {
+            $jatahCuti->delete();
+            return redirect()->back()->with('success', 'Jatah cuti berhasil dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menghapus jatah cuti: ' . $e->getMessage());
+        }
+    }
 }

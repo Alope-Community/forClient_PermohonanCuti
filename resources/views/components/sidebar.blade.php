@@ -5,7 +5,7 @@
                 <i class="lni lni-grid-alt"></i>
             </button>
             <div class="sidebar-logo">
-                <h1 class="text-white">Brand Name</h1>
+                <h1 class="text-white">SiCuti</h1>
             </div>
         </div>
         <hr class="text-white">
@@ -52,7 +52,7 @@
             @if (auth()->user()->role == 'manajer_sdm' || auth()->user()->role == 'asisten_manajer_sdm' || auth()->user()->role == 'super_admin')
                 <li class="sidebar-item">
                     <a href="{{ route('jatah-cuti') }}"
-                        class="sidebar-link {{ request()->routeIs('user.profile') ? 'active' : '' }}">
+                        class="sidebar-link {{ request()->routeIs('jatah-cuti') ? 'active' : '' }}">
                         <i class="lni lni-timer"></i>
                         <span>Jatah Cuti</span>
                     </a>
