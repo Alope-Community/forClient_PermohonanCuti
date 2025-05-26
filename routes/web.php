@@ -47,6 +47,3 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verifikasi'])->name('cuti.verifikasi');
 });
-Route::get('/surat-cuti', function () {
-    return view('section.surat.index');
-})->name('cuti.surat');
