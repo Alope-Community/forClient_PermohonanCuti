@@ -2,16 +2,17 @@
 
 @section('content')
     <div class="container-fluid mt-4">
-        <div class="row mb-3">
-            <div class="col-6">
+        <div class="row mb-3 align-items-center">
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
                 <x-header-sections />
             </div>
-            <div class="col-6 text-end">
-                <a href="javascript:void" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal">+
-                    Tambah</a>
+            <div class="col-12 col-md-6 text-md-end">
+                <a href="javascript:void(0)" class="btn btn-sm btn-primary px-4" data-bs-toggle="modal" data-bs-target="#tambahModal">+ Tambah</a>
             </div>
         </div>
+
         <hr class="text-black">
+
         <div class="card">
             <div class="card-body">
                 @if (session('errors'))
@@ -26,9 +27,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped w-100">
-                        <thead class="thead-dark">
+                        <thead class=" text-center">
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
@@ -49,7 +51,7 @@
                                         <td>{{ $item->no_telepon }}</td>
                                         <td>{{ $item->gender }}</td>
                                         <td>{{ $item->role }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <div class="dropdown">
                                                 <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
                                                     id="aksiDropdown{{ $item->id }}" data-bs-toggle="dropdown"
@@ -70,9 +72,9 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title"
-                                                                    id="hapusModalLabel{{ $item->id }}">Konfirmasi
-                                                                    Hapus</h5>
+                                                                <h5 class="modal-title" id="hapusModalLabel{{ $item->id }}">
+                                                                    Konfirmasi Hapus
+                                                                </h5>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
@@ -87,8 +89,7 @@
                                                                     method="POST" class="d-inline">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger">Hapus</button>
+                                                                    <button type="submit" class="btn btn-danger">Hapus</button>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -132,20 +133,20 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-6 mb-3">
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
                                 <label for="name" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="no_telepon" class="form-label">Telepon</label>
                                 <input type="text" class="form-control" id="no_telepon" name="no_telepon" required>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select" id="gender" name="gender" required>
                                     <option value="">Pilih Gender</option>
@@ -153,7 +154,7 @@
                                     <option value="Wanita">Wanita</option>
                                 </select>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="role" class="form-label">Divisi</label>
                                 <select name="role" id="role" class="form-select" required>
                                     <option value="">Pilih Divisi</option>
@@ -166,21 +167,21 @@
                                     <option value="super_admin">Super Admin</option>
                                 </select>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <textarea type="text" class="form-control" id="alamat" name="alamat" required></textarea>
+                                <textarea class="form-control" id="alamat" name="alamat" required></textarea>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-12 col-md-6">
                                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                                 <input type="password" class="form-control" id="password_confirmation" name="confirmation" required>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer d-flex justify-content-between">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
@@ -192,7 +193,7 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#dataTable').DataTable();
         });
     </script>
