@@ -47,3 +47,10 @@ Route::middleware('auth')->group(function () {
     });
     route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verifikasi'])->name('cuti.verifikasi');
 });
+route::get('/verifikasi-cuti', function () {
+    return view('section.verification.index');
+})->name('cuti.verifikasi');
+
+Route::get('/surat-cuti', function () {
+    return view('section.surat.index');
+})->name('cuti.surat');
