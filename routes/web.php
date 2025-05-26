@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('auth/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::middleware('role:super_admin')->prefix('pengguna')->group(function(){
+    Route::middleware('role:super_admin')->prefix('pengguna')->group(function () {
         Route::get('', [UserController::class, 'index'])->name('pengguna.index');
         Route::get('create', [UserController::class, 'create'])->name('pengguna.create');
         Route::post('store', [UserController::class, 'store'])->name('pengguna.store');
@@ -30,12 +30,12 @@ Route::middleware('auth')->group(function () {
         Route::delete('{id}/destroy', [UserController::class, 'destroy'])->name('pengguna.delete');
     });
 
-    Route::prefix('jatah-cuti')->group(function(){
-          Route::get('', [JatahCutiController::class, 'index'])->name('jatah-cuti');
-          Route::post('', [JatahCutiController::class, 'store'])->name('jatah-cuti.store');
+    Route::prefix('jatah-cuti')->group(function () {
+        Route::get('', [JatahCutiController::class, 'index'])->name('jatah-cuti');
+        Route::post('', [JatahCutiController::class, 'store'])->name('jatah-cuti.store');
     });
 
-    Route::prefix('pengajuan')->group(function(){
+    Route::prefix('pengajuan')->group(function () {
         Route::get('/', [PengajuanCutiController::class, 'index'])->name('pengajuan.cuti');
         Route::post('/store', [PengajuanCutiController::class, 'store'])->name('pengajuan.store');
         Route::get('/riwayat', [RiwayatCutiController::class, 'index'])->name('pengajuan.riwayat');
@@ -46,4 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/surat-balasan', [DetailBalasanController::class, 'index'])->name('user.surat');
     });
     Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verifikasi'])->name('cuti.verifikasi');
+    Route::get('/surat-cuti', function () {
+        return view('section.surat.index');
+    })->name('cuti.surat');
 });
