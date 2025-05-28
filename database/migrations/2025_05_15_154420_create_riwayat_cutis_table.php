@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('riwayat_cutis', function (Blueprint $table) {
             $table->id();
-            $table->integer('cuti_id');
+            $table->foreignId('cuti_id')->constrained('cutis')->cascadeOnDelete();
             $table->date('tanggal_update');
             $table->enum('status', ['manajer-unit', 'manajer-sdm', 'direktur-operasional', 'menunggu', 'ditolak'])->default('menunggu');
             $table->text('keterangan');

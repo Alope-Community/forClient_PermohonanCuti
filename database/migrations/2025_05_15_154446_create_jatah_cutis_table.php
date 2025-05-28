@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('jatah_cutis', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id');
+            $table->foreignId('users_id')->constrained('users')->cascadeOnDelete();
             $table->date('tahun');
             $table->integer('total_jatah');
             $table->integer('sisa_jatah');

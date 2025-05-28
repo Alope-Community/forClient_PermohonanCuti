@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('laporan_cutis', function (Blueprint $table) {
             $table->id();
-            $table->integer('cuti_id');
-            $table->integer('users_id');
-            $table->string('nama_karyawan');
+            $table->foreignId('cuti_id')->constrained('cutis')->cascadeOnDelete();
+            $table->foreignId('nama_karyawan')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreignId('diterbitkan_oleh')->references('id')->on('users')->cascadeOnDelete();
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
             $table->integer('jumlah_hari');
-            $table->text('alasan');
-            $table->string('diterbitkan_oleh');
+            $table->text('alasan')->nullable();
             $table->string('file_path');
             $table->timestamps();
         });
