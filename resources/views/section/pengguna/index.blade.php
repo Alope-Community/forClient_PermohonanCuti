@@ -7,7 +7,8 @@
                 <x-header-sections />
             </div>
             <div class="col-12 col-md-6 text-md-end">
-                <a href="javascript:void(0)" class="btn btn-sm btn-primary px-4" data-bs-toggle="modal" data-bs-target="#tambahModal">+ Tambah</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-primary px-4" data-bs-toggle="modal"
+                    data-bs-target="#tambahModal">+ Tambah</a>
             </div>
         </div>
 
@@ -72,7 +73,8 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="hapusModalLabel{{ $item->id }}">
+                                                                <h5 class="modal-title"
+                                                                    id="hapusModalLabel{{ $item->id }}">
                                                                     Konfirmasi Hapus
                                                                 </h5>
                                                                 <button type="button" class="btn-close"
@@ -89,7 +91,8 @@
                                                                     method="POST" class="d-inline">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger">Hapus</button>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -159,10 +162,12 @@
                                 <select name="role" id="role" class="form-select" required>
                                     <option value="">Pilih Divisi</option>
                                     <option value="karyawan">Karyawan</option>
-                                    <option value="manajer_unit">Manajer Unit</option>
-                                    <option value="manajer_sdm">Manajer SDM</option>
-                                    <option value="direktur_operational">Direktur Operational</option>
-                                    <option value="super_admin">Super Admin</option>
+                                    @if (auth()->user()->role == 'super_admin')
+                                        <option value="manajer_unit">Manajer Unit</option>
+                                        <option value="manajer_sdm">Manajer SDM</option>
+                                        <option value="direktur_operational">Direktur Operational</option>
+                                        <option value="super_admin">Super Admin</option>
+                                    @endif
                                 </select>
                             </div>
                             <div class="col-12 col-md-6">
@@ -175,7 +180,8 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                                <input type="password" class="form-control" id="password_confirmation" name="confirmation" required>
+                                <input type="password" class="form-control" id="password_confirmation"
+                                    name="confirmation" required>
                             </div>
                         </div>
                     </div>
@@ -191,7 +197,7 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#dataTable').DataTable();
         });
     </script>

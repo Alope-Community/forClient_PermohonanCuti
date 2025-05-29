@@ -57,7 +57,7 @@
                     </a>
                 </li>
             @endif
-            @if (!auth()->user()->role == 'karyawan')
+            @if (auth()->user()->role != 'karyawan')
                 <li class="sidebar-item">
                     <a href="{{ route('cuti.verifikasi') }}"
                         class="sidebar-link {{ request()->routeIs('cuti.verifikasi') ? 'active' : '' }}">
