@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cuti extends Model
 {
-    protected $guarded = [''];
+    protected $table = 'cutis';
+
+    protected $fillable = [
+        'users_id',
+        'tanggal_mulai',
+        'tanggal_selesai',
+        'alasan',
+        'status',
+        'catatan_penolakan',
+    ];
 
     public function user()
     {

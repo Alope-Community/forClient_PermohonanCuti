@@ -17,6 +17,6 @@ class RiwayatCuti extends Model
 
     public function cuti()
     {
-        return $this->belongsTo(Cuti::class);
+        return $this->belongsTo(Cuti::class, 'cuti_id');
     }
 }

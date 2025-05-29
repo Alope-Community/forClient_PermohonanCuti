@@ -42,13 +42,18 @@ class User extends Authenticatable
         ];
     }
 
+    public function laporanCutis()
+    {
+        return $this->hasMany(LaporanCuti::class, 'nama_karyawan');
+    }
 
     public function cuti()
     {
         return $this->hasMany(Cuti::class, 'users_id');
     }
 
-    public function jatahCuti(){
+    public function jatahCuti()
+    {
         return $this->hasMany(JatahCuti::class, 'users_id');
     }
 }
