@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped align-middle text-nowrap">
-                        <thead class="table-light">
+                        <thead class="table-dark">
                             <tr>
                                 <th>Nama</th>
                                 <th>Tanggal Mulai</th>

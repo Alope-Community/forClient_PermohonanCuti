@@ -2,31 +2,33 @@
 
 @section('content')
     <div class="main p-4 ms-3 mt-3">
-        <x-header-sections/>
-        <hr class="text-black">
         <div class="mb-4 border-bottom pb-2">
             <h4 class="fw-bold text-dark">Detail Balasan</h4>
         </div>
         <div class="row mb-3">
             <div class="col-md-6 mb-3">
                 <label class="form-label fw-semibold">Nama</label>
-                <div class="form-control bg-light">Rizki</div>
+                <div class="form-control bg-light">{{ $data->user ? $data->user->name : '-' }}</div>
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label fw-semibold">Status</label>
-                <div class="form-control bg-light text-success">Disetujui</div>
+               @if ($data->status == 'setujui')
+                    <div class="form-control bg-light text-success">Disetujui</div>
+                @else
+                     <div class="form-control bg-light text-danger">Ditolak</div>
+               @endif
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label fw-semibold">Tanggal Mulai</label>
-                <div class="form-control bg-light">2025-06-01</div>
+                <div class="form-control bg-light">{{ $data->tanggal_mulai }}</div>
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label fw-semibold">Tanggal Selesai</label>
-                <div class="form-control bg-light">2025-06-10</div>
+                <div class="form-control bg-light">{{ $data->tanggal_selesai }}</div>
             </div>
             <div class="col-12 mb-3">
                 <label class="form-label fw-semibold">Alasan</label>
-                <div class="form-control bg-light">Liburan keluarga</div>
+                <div class="form-control bg-light">{{ $data->alasan }}</div>
             </div>
             <div class="col-12 mb-3">
                 <label class="form-label fw-semibold">Balasan Admin</label>

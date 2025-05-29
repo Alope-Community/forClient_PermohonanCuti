@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuti;
 use App\Models\JatahCuti;
 use App\Models\User;
 use Carbon\Carbon;
@@ -55,7 +56,8 @@ class JatahCutiController extends Controller
         }
     }
 
-    public function edit(JatahCuti $jatahCuti){
+    public function edit(JatahCuti $jatahCuti)
+    {
         $dataKaryawan = User::where('role', 'karyawan')->get();
         return view('section.jatahCuti.edit', [
             'data' => $jatahCuti,
@@ -82,12 +84,34 @@ class JatahCutiController extends Controller
                 return back()->with('error', 'User ini sudah memiliki jatah cuti untuk tahun tersebut.');
             }
 
-            $jatahCuti->update([
-                'users_id' => $request->users_id,
-                'tahun' => $request->tahun,
-                'total_jatah' => $request->total_jatah,
-            ]);
+            // Ambil data cuti dengan status 'setujui' untuk user dan tahun terkait
+            $cuti = Cuti::where('users_id', $request->users_id)
+                ->whereYear('tanggal_mulai', \Carbon\Carbon::parse($request->tahun)->year)
+                ->where('status', 'setujui')
+                ->get();
 
+            // Hitung total hari cuti yang sudah diambil
+            $totalHariCuti = $cuti->sum(function ($item) {
+                $mulai = \Carbon\Carbon::parse($item->tanggal_mulai);
+                $selesai = \Carbon\Carbon::parse($item->tanggal_selesai);
+                return $mulai->diffInDays($selesai) + 1;
+            });
+
+            if ($totalHariCuti) {
+                $jatahCuti->update([
+                    'users_id' => $request->users_id,
+                    'tahun' => $request->tahun,
+                    'total_jatah' => $request->total_jatah,
+                    'sisa_jatah' => max(0, $request->total_jatah - $totalHariCuti)
+                ]);
+            } else {
+                $jatahCuti->update([
+                    'users_id' => $request->users_id,
+                    'tahun' => $request->tahun,
+                    'total_jatah' => $request->total_jatah,
+                    'sisa_jatah' => $request->total_jatah,
+                ]);
+            }
             return redirect()->route('jatah-cuti')->with('success', 'Data Jatah Cuti berhasil diupdate.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());

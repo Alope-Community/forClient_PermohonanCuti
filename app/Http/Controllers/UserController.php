@@ -11,10 +11,17 @@ class UserController extends Controller
 {
     public function index()
     {
+        $finalData = [];
         $data = User::all();
 
+        if (auth()->user()->role == 'manajer_sdm') {
+            $finalData= $data->where('role', 'karyawan');
+        } else {
+            $finalData = $data;
+        }
+
         return view('section.pengguna.index', [
-            'data' => $data
+            'data' => $finalData
         ]);
     }
 
@@ -50,8 +57,6 @@ class UserController extends Controller
         }
     }
 
-    public function edit() {}
-    public function update() {}
     public function destroy(User $id)
     {
         $id->delete();

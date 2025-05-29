@@ -17,12 +17,16 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            @if (auth()->user()->role == 'super_admin')
+            @if (auth()->user()->role == 'super_admin' || auth()->user()->role == 'manajer_sdm')
                 <li class="sidebar-item">
                     <a href="{{ route('pengguna.index') }}"
                         class="sidebar-link {{ request()->routeIs('pengguna.index') ? 'active' : '' }}">
                         <i class="lni lni-users"></i>
-                        <span>Pengguna</span>
+                        @if (auth()->user()->role == 'manajer_sdm' || auth()->user()->role == 'direktur_operational')
+                            <span>Karyawan</span>
+                        @else
+                            <span>Pengguna</span>
+                        @endif
                     </a>
                 </li>
             @endif
@@ -42,19 +46,23 @@
                     </a>
                 </li>
             @endif
-            <li class="sidebar-item">
-                <a href="{{ route('cuti.verifikasi') }}"
-                    class="sidebar-link {{ request()->routeIs('cuti.verifikasi') ? 'active' : '' }}">
-                    <i class="lni lni-checkmark-circle"></i>
-                    <span>Verifikasi Cuti</span>
-                </a>
-            </li>
-            @if (auth()->user()->role == 'manajer_sdm' || auth()->user()->role == 'asisten_manajer_sdm' || auth()->user()->role == 'super_admin')
+            @if (auth()->user()->role == 'manajer_sdm' ||
+                    auth()->user()->role == 'asisten_manajer_sdm' ||
+                    auth()->user()->role == 'super_admin')
                 <li class="sidebar-item">
                     <a href="{{ route('jatah-cuti') }}"
                         class="sidebar-link {{ request()->routeIs('jatah-cuti') ? 'active' : '' }}">
                         <i class="lni lni-timer"></i>
                         <span>Jatah Cuti</span>
+                    </a>
+                </li>
+            @endif
+            @if (!auth()->user()->role == 'karyawan')
+                <li class="sidebar-item">
+                    <a href="{{ route('cuti.verifikasi') }}"
+                        class="sidebar-link {{ request()->routeIs('cuti.verifikasi') ? 'active' : '' }}">
+                        <i class="lni lni-checkmark-circle"></i>
+                        <span>Verifikasi Cuti</span>
                     </a>
                 </li>
             @endif

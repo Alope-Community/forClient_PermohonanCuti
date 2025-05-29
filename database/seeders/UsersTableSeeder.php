@@ -16,9 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         $roles = [
             'karyawan',
-            'asisten_manajer_unit',
             'manajer_unit',
-            'asisten_manajer_sdm',
             'manajer_sdm',
             'direktur_operational',
             'super_admin',

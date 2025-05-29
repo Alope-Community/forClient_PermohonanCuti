@@ -30,7 +30,7 @@
 
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped w-100">
-                        <thead class=" text-center">
+                        <thead class="text-center table-dark">
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
@@ -159,9 +159,7 @@
                                 <select name="role" id="role" class="form-select" required>
                                     <option value="">Pilih Divisi</option>
                                     <option value="karyawan">Karyawan</option>
-                                    <option value="asisten_manajer_unit">Asisten Manajer Unit</option>
                                     <option value="manajer_unit">Manajer Unit</option>
-                                    <option value="asisten_manajer_sdm">Asisten Manajer SDM</option>
                                     <option value="manajer_sdm">Manajer SDM</option>
                                     <option value="direktur_operational">Direktur Operational</option>
                                     <option value="super_admin">Super Admin</option>

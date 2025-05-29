@@ -21,12 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('auth/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::middleware('role:super_admin')->prefix('pengguna')->group(function () {
+    Route::prefix('pengguna')->group(function () {
         Route::get('', [UserController::class, 'index'])->name('pengguna.index');
         Route::get('create', [UserController::class, 'create'])->name('pengguna.create');
         Route::post('store', [UserController::class, 'store'])->name('pengguna.store');
-        Route::get('{id}/edit', [UserController::class, 'edit'])->name('pengguna.edit');
-        Route::put('{id}/update', [UserController::class, 'update'])->name('pengguna.update');
         Route::delete('{id}/destroy', [UserController::class, 'destroy'])->name('pengguna.delete');
     });
 
@@ -42,13 +40,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [PengajuanCutiController::class, 'index'])->name('pengajuan.cuti');
         Route::post('/store', [PengajuanCutiController::class, 'store'])->name('pengajuan.store');
         Route::get('/riwayat', [RiwayatCutiController::class, 'index'])->name('pengajuan.riwayat');
+         Route::get('{cuti}/surat-balasan', [DetailBalasanController::class, 'index'])->name('pengajuan.balasan');
     });
 
     Route::prefix('user')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('user.profile');
         Route::put('{user}/update', [ProfileController::class, 'update'])->name('user.profile.update');
         Route::put('{user}change-password', [ProfileController::class, 'changePassword'])->name('user.profile.changerPassword');
-        Route::get('/surat-balasan', [DetailBalasanController::class, 'index'])->name('user.surat');
     });
     Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verifikasi'])->name('cuti.verifikasi');
     Route::get('/surat-cuti', function () {

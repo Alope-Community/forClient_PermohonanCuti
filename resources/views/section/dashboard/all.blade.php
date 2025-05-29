@@ -28,7 +28,7 @@
                 <div>
                     <div class="fw-semibold text-muted fs-5">Pengajuan Cuti Disetujui Tahun Ini</div>
                     <div class="fs-2 fw-bold">
-                        {{ \App\Models\Cuti::whereYear('created_at', now()->year)->where('status', 'disetujui')->count() }}
+                        {{ \App\Models\Cuti::whereYear('created_at', now()->year)->where('status', 'setujui')->count() }}
                     </div>
                 </div>
                 <i class="lni lni-checkmark-circle display-6 text-success"></i>

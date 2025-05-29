@@ -16,11 +16,12 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped align-middle text-nowrap">
-                        <thead class="table-light">
+                        <thead class="table-dark">
                             <tr>
                                 <th>Nama</th>
                                 <th>Tanggal Mulai</th>
                                 <th>Tanggal Selesai</th>
+                                <th>Jumlah Hari</th>
                                 <th>Alasan</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -33,18 +34,22 @@
                                         <td>{{ $item->user->name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->tanggal_selesai)->format('d-m-Y') }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($item->tanggal_mulai)->diffInDays(\Carbon\Carbon::parse($item->tanggal_selesai)) + 1 }}
+                                            Hari
+                                        </td>
                                         <td style="white-space: normal; word-break: break-word;">{{ $item->alasan }}</td>
                                         <td>
-                                            @if ($item->status == 'disetujui')
+                                            @if ($item->status == 'setujui')
                                                 <span class="badge bg-success">Disetujui</span>
-                                            @elseif ($item->status == 'ditolak')
+                                            @elseif ($item->status == 'tolak')
                                                 <span class="badge bg-danger">Ditolak</span>
                                             @else
                                                 <span class="badge bg-warning text-dark">Menunggu</span>
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($item->status == 'disetujui')
+                                            @if ($item->status != 'proses')
                                                 <div class="dropdown">
                                                     <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
                                                         id="aksiDropdown{{ $item->id }}" data-bs-toggle="dropdown"
@@ -55,7 +60,7 @@
                                                         aria-labelledby="aksiDropdown{{ $item->id }}">
                                                         <li>
                                                             <a class="dropdown-item"
-                                                                href="{{ route('pengguna.edit', $item->id) }}">Lihat Surat
+                                                                href="{{ route('pengajuan.balasan', $item->id) }}">Lihat Surat
                                                                 Balasan</a>
                                                         </li>
                                                     </ul>
@@ -68,7 +73,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="6" class="text-center">Tidak ada data cuti.</td>
+                                    <td colspan="7" class="text-center">Tidak ada data cuti.</td>
                                 </tr>
                             @endif
                         </tbody>
