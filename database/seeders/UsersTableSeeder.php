@@ -33,5 +33,15 @@ class UsersTableSeeder extends Seeder
                 'role' => $role,
             ]);
         }
+
+        User::create([
+            'name' => 'Test',
+            'email' => 'test@gmail.com',
+            'gender' => 'Pria',
+            'password' => Hash::make('password'),
+            'alamat' => 'Alamat Dummy Doang.',
+            'no_telepon' => '086938473848',
+            'role' => 'karyawan',
+        ]);
     }
 }

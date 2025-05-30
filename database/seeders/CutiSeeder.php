@@ -18,7 +18,7 @@ class CutiSeeder extends Seeder
             'users_id' => 1,
             'tanggal_mulai' => '2025-05-29',
             'tanggal_selesai' => '2025-06-01',
-            'alasan' => 'pen kawin',
+            'alasan' => 'Liburan',
             'status' => 'setujui',
         ]);
 
@@ -26,7 +26,7 @@ class CutiSeeder extends Seeder
             'users_id' => 1,
             'tanggal_mulai' => '2025-05-20',
             'tanggal_selesai' => '2025-05-25',
-            'alasan' => 'pen kawin',
+            'alasan' => 'Sakit',
             'status' => 'tolak',
         ]);
 
@@ -34,7 +34,7 @@ class CutiSeeder extends Seeder
             'users_id' => 1,
             'tanggal_mulai' => '2025-06-10',
             'tanggal_selesai' => '2025-06-15',
-            'alasan' => 'pen kawin',
+            'alasan' => 'Liburan',
             'status' => 'proses',
         ]);
 

@@ -48,7 +48,11 @@ Route::middleware('auth')->group(function () {
         Route::put('{user}/update', [ProfileController::class, 'update'])->name('user.profile.update');
         Route::put('{user}change-password', [ProfileController::class, 'changePassword'])->name('user.profile.changerPassword');
     });
-    Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'verifikasi'])->name('cuti.verifikasi');
+
+    Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'index'])->name('cuti.verifikasi');
+    Route::get('/verifikasi-cuti/edit/{id}', [PengajuanCutiController::class, 'formEdit'])->name('cuti.verifikasi.edit');
+    Route::put('/verifikasi-cuti/update/{id}', [PengajuanCutiController::class, 'update'])->name('cuti.verifikasi.update');
+
     Route::get('/surat-cuti', function () {
         return view('section.surat.index');
     })->name('cuti.surat');

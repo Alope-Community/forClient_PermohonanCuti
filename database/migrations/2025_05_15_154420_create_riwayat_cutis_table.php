@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('cuti_id')->constrained('cutis')->cascadeOnDelete();
             $table->date('tanggal_update');
-            $table->enum('status', ['manajer-unit', 'manajer-sdm', 'direktur-operasional', 'menunggu', 'ditolak'])->default('menunggu');
+            $table->enum('status', ['manajer_unit', 'manajer_sdm', 'direktur_operational', 'menunggu', 'ditolak'])->default('menunggu');
             $table->text('keterangan');
             $table->timestamps();
         });

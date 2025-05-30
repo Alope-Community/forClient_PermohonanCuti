@@ -19,26 +19,24 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>Nama</th>
-                                <th>Tanggal Mulai</th>
-                                <th>Tanggal Selesai</th>
-                                <th>Alasan</th>
+                                <th>Tanggal Update</th>
+                                <th>Keterangan</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Firdan Fauzan</td>
-                                <td>2025-06-01</td>
-                                <td>2025-06-05</td>
-                                <td>Liburan keluarga</td>
-                                <td>
-                                    <select name="status" class="form-select form-select-sm">
-                                        <option value="disetujui">Setujui</option>
-                                        <option value="ditolak">Tolak</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
+                            @foreach ($riwayatCuti as $item)
+                                <tr>
+                                    <td>{{ $item->cuti->user->name ?? '-' }}</td>
+                                    <td>{{ $item->tanggal_update }}</td>
+                                    <td>{{ $item->keterangan }}</td>
+                                    <td>Diverifikasi oleh: {{ ucwords(str_replace('_', ' ', $item->status)) }}</td>
+                                    <td>
+                                        <a href="{{ route('cuti.verifikasi.edit', $item->id) }}">Lihat Detail</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
