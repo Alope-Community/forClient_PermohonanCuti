@@ -91,8 +91,7 @@ class PengajuanCutiController extends Controller
             $riwayatCuti->tanggal_update = now();
             $riwayatCuti->keterangan = $request->keterangan;
 
-            // TODO: kalo udah sampe direktur operational maka update model cuti menjadi "setujui"
-            if ($role == 'direktur_operational') {
+            if ($role === 'direktur_operational' || $riwayatCuti->status === 'ditolak') {
                 $riwayatCuti->cuti->status = $request->status === 'ditolak' ? 'tolak' : $request->status;
                 $riwayatCuti->cuti->save();
             }
