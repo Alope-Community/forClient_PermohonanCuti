@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container-fluid py-4">
-        <x-header-sections />
-        <hr class="text-black">
+<div class="container-fluid py-4">
+    <x-header-sections />
+    <hr class="text-black">
 
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 
         <div class="card">
             <div class="card-body">
@@ -46,9 +46,9 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
 @endsection
