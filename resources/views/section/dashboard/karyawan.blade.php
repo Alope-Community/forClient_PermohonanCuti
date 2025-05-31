@@ -1,4 +1,21 @@
 <div class="row g-4">
+
+    <h3>Notifikasi</h3>
+    @forelse(auth()->user()->unreadNotifications as $notification)
+        <div class="alert alert-info mb-2">
+            <div>
+                <p>Notifikasi Baru</p>
+                <strong>Status: {{ $notification->data['status'] }}</strong><br>
+                <p>Keterangan: {{ $notification->data['keterangan'] }}</p>
+                <small>{{ $notification->created_at->diffForHumans() }}</small>
+            </div>
+            <a href="{{ route('pengajuan.balasan', $notification->data['leave_response_id']) }}"
+                class="btn btn-primary mt-2">Lihat Balasan</a>
+        </div>
+    @empty
+        <p>Tidak ada notifikasi.</p>
+    @endforelse
+
     <!-- Card: Karyawan 1 -->
     <div class="col-12 col-md-4">
         <div class="card shadow-sm border-0 h-100" style="min-height: 160px;">
