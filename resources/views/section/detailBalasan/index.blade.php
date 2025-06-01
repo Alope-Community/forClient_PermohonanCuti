@@ -37,12 +37,14 @@
                 </div>
             </div>
 
-            {{-- Tombol Download PDF --}}
+           @if ($file && isset($file['file_path']))
+             {{-- Tombol Download PDF --}}
             <div class="col-12 mt-3">
-                <a href="/files/balasan_izin_cuti.pdf" class="btn btn-outline-primary" download>
+                <a href="{{ asset('storage/' . $file['file_path']) }}" class="btn btn-outline-primary" download>
                     <i class="bi bi-download me-1"></i> Download PDF
                 </a>
             </div>
+           @endif
         </div>
     </div>
 @endsection

@@ -84,7 +84,7 @@
       </tr>
     </table>
 
-    <p>Dan setuju, memberikan izin untuk tidak masuk bekerja pada tanggal {{$cuti->tanggal_mulai}} sampai dengan {{ $cuti->tanggal_selesai }}.</p>
+    <p>Dan {{ $status }}, {{  $status == 'Disetujui' ?  'Menyetujui' : 'Menolak '}} izin untuk tidak masuk bekerja pada tanggal {{$cuti->tanggal_mulai}} sampai dengan {{ $cuti->tanggal_selesai }}.</p>
 
     <p>Demikian surat balasan ini disampaikan untuk dipergunakan sebagaimana mestinya.</p>
   </div>

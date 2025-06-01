@@ -82,7 +82,7 @@ class PengajuanCutiController extends Controller
 
             if (auth()->user()->role == 'direktur_operational') {
                 $cuti = Cuti::findOrFail($riwayatCuti->cuti_id);
-                $this->simpanKeLaporan($cuti, $user);
+                $this->simpanKeLaporan($cuti, $user, $request->status);
             }
 
             if (!$this->hasAccess($role, $currentStatus)) {
@@ -248,7 +248,7 @@ class PengajuanCutiController extends Controller
      * @param  \App\Models\Cuti  $cuti
      * @return void
      */
-    protected function simpanKeLaporan(Cuti $cuti, User $user)
+    protected function simpanKeLaporan(Cuti $cuti, User $user, $status)
     {
         // Generate kode: 3 digit urutan/CUTI/tanggal (ddmmyyyy)
         $lastId = DB::table('laporan_cutis')->max('id') ?? 0;
@@ -278,7 +278,7 @@ class PengajuanCutiController extends Controller
         $laporan = DB::table('laporan_cutis')->where('id', $laporanId)->first();
 
         // Generate PDF file and save to storage, gunakan data laporan
-        $pdf = Pdf::loadView('section.document.template', compact(['laporan', 'cuti', 'user']));
+        $pdf = Pdf::loadView('section.document.template', compact(['laporan', 'cuti', 'user', 'status']));
         $fileName = 'surat_cuti_' . $cuti->id . '_' . time() . '.pdf';
         $filePath = 'laporan_cuti/' . $fileName;
         Storage::disk('public')->put($filePath, $pdf->output());
