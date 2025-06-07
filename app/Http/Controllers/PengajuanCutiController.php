@@ -94,6 +94,18 @@ class PengajuanCutiController extends Controller
                 $this->notifyNextApprover($riwayatCuti, $role);
             }
 
+            // Pengurangan jatah cuti
+            if ($role === 'direktur_operational' && $request->status === 'setujui') {
+                $start = \Carbon\Carbon::parse($riwayatCuti->cuti->tanggal_mulai);
+                $end = \Carbon\Carbon::parse($riwayatCuti->cuti->tanggal_selesai);
+                $jumlah_hari = $start->diffInDays($end) + 1;
+
+                
+                $jatahCuti = JatahCuti::where('users_id', $riwayatCuti->cuti->users_id)->first();
+                $jatahCuti->sisa_jatah -= $jumlah_hari;
+                $jatahCuti->save();
+            }
+
             $riwayatCuti->save();
 
             return redirect()->route('cuti.verifikasi')->with('success', 'Verifikasi cuti berhasil diperbarui.');
