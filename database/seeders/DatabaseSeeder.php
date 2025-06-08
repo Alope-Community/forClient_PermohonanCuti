@@ -13,9 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UsersTableSeeder::class,
-            JatahCutiSeeder::class,
-            CutiSeeder::class,
-            RiwayatCutiSeeder::class,
         ]);
     }
 }
