@@ -80,7 +80,7 @@ class PengajuanCutiController extends Controller
             $currentStatus = $riwayatCuti->status;
 
 
-            if (auth()->user()->role == 'direktur_operational') {
+            if ($riwayatCuti->status === 'ditolak') {
                 $cuti = Cuti::findOrFail($riwayatCuti->cuti_id);
                 $this->simpanKeLaporan($cuti, $user, $request->status);
             }
@@ -109,7 +109,7 @@ class PengajuanCutiController extends Controller
                 $end = \Carbon\Carbon::parse($riwayatCuti->cuti->tanggal_selesai);
                 $jumlah_hari = $start->diffInDays($end) + 1;
 
-                
+
                 $jatahCuti = JatahCuti::where('users_id', $riwayatCuti->cuti->users_id)->first();
                 $jatahCuti->sisa_jatah -= $jumlah_hari;
                 $jatahCuti->save();
