@@ -77,7 +77,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
                             Ganti Password
                         </button>
-                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                        <button type="submit" class="btn" style="background-color: #00BFFF">Update Profile</button>
                     </div>
                 </form>
             </div>
@@ -111,7 +111,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary">Update Password</button>
+        <button type="submit" class="btn" style="background-color: #00BFFF">Update Password</button>
       </div>
     </form>
   </div>

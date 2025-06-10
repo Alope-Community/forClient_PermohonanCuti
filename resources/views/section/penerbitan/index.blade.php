@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped align-middle text-nowrap">
-                        <thead class="table-dark">
+                        <thead class="text-center" style="background-color: #00BFFF">
                             <tr>
                                 <th>Nama Karyawan</th>
                                 <th>Jumlah Cuti</th>

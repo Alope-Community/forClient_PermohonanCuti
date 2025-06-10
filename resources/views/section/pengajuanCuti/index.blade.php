@@ -50,7 +50,7 @@
                     <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary px-5">Ajukan</button>
+                        <button type="submit" class="btn px-5" style="background-color: #00BFFF">Ajukan</button>
                     </div>
                 </form>
             </div>

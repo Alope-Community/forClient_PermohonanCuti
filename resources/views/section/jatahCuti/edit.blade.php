@@ -68,7 +68,7 @@
                             </div>
                             <div class="d-flex justify-content-end">
                                 <a href="{{ url()->previous() }}" class="btn btn-secondary me-2">Batal</a>
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                <button type="submit" class="btn" style="background-color: #00BFFF">Simpan Perubahan</button>
                             </div>
                         </form>
 

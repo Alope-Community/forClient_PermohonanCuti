@@ -8,7 +8,7 @@
             </div>
             <div class="col-6 text-end">
                 <!-- Tambah Button with Modal Trigger -->
-                <a href="javascript:void" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal">+
+                <a href="javascript:void" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#tambahModal" style="background-color: #00BFFF">+
                     Tambah</a>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 @endif
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped w-100">
-                        <thead class="table-dark">
+                        <thead class="text-center" style="background-color: #00BFFF">
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn" style="background-color: #00BFFF">Simpan</button>
                     </div>
                 </form>
             </div>

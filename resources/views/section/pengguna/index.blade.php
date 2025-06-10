@@ -7,8 +7,8 @@
                 <x-header-sections />
             </div>
             <div class="col-12 col-md-6 text-md-end">
-                <a href="javascript:void(0)" class="btn btn-sm btn-primary px-4" data-bs-toggle="modal"
-                    data-bs-target="#tambahModal">+ Tambah</a>
+                <a href="javascript:void(0)" class="btn btn-sm px-4" data-bs-toggle="modal"
+                    data-bs-target="#tambahModal" style="background-color: #00BFFF">+ Tambah</a>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
 
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-bordered table-striped w-100">
-                        <thead class="text-center table-dark">
+                        <thead class="text-center" style="background-color: #00BFFF">
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
@@ -187,7 +187,7 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn" style="background-color: #00BFFF">Simpan</button>
                     </div>
                 </div>
             </form>

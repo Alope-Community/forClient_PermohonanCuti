@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="d-flex flex-wrap gap-2">
-                        <button type="submit" class="btn btn-success">Simpan Verifikasi</button>
+                        <button type="submit" class="btn" style="background-color: #00BFFF">Simpan Verifikasi</button>
                         <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
                     </div>
                 </form>

@@ -96,7 +96,7 @@
             </div>
           </div>
           <div class="d-grid">
-            <button type="submit" class="btn btn-dark">Login</button>
+            <button type="submit" class="btn" style="background-color: #00BFFF">Login</button>
           </div>
         </form>
       </div>
