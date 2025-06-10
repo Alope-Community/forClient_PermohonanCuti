@@ -5,7 +5,7 @@
                 <i class="lni lni-grid-alt"></i>
             </button>
             <div class="sidebar-logo">
-                <h1 class="text-white">SiCuti</h1>
+                <img src="{{ asset('image/logo.png') }}" alt="Logo SiCuti" style="height: 65px;">
             </div>
         </div>
         <hr class="text-white">
@@ -14,7 +14,7 @@
                 <a href="{{ route('dashboard') }}"
                     class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <i class="lni lni-grid-alt"></i>
-                    <span>Dashboard</span>
+                    <span>Halaman Utama</span>
                 </a>
             </li>
             @if (auth()->user()->role == 'super_admin' || auth()->user()->role == 'manajer_sdm')
