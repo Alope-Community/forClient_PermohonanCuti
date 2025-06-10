@@ -26,4 +26,9 @@ class Cuti extends Model
     {
         return $this->hasMany(RiwayatCuti::class, 'cuti_id');
     }
+
+    public function laporanCuti()
+    {
+        return $this->hasMany(LaporanCuti::class, 'cuti_id');
+    }
 }

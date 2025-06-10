@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailBalasanController;
 use App\Http\Controllers\JatahCutiController;
+use App\Http\Controllers\PenerbitanController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatCutiController;
@@ -48,6 +49,8 @@ Route::middleware('auth')->group(function () {
         Route::put('{user}/update', [ProfileController::class, 'update'])->name('user.profile.update');
         Route::put('{user}change-password', [ProfileController::class, 'changePassword'])->name('user.profile.changerPassword');
     });
+
+    Route::get('/penerbitan', [PenerbitanController::class, 'index'])->name('penerbitan.index');
 
     Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'index'])->name('cuti.verifikasi');
     Route::get('/verifikasi-cuti/edit/{id}', [PengajuanCutiController::class, 'formEdit'])->name('cuti.verifikasi.edit');

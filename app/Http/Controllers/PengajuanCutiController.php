@@ -80,7 +80,7 @@ class PengajuanCutiController extends Controller
             $currentStatus = $riwayatCuti->status;
 
 
-            if ($riwayatCuti->status === 'ditolak') {
+            if ($request->status === 'ditolak') {
                 $cuti = Cuti::findOrFail($riwayatCuti->cuti_id);
                 $this->simpanKeLaporan($cuti, $user, $request->status);
             }
