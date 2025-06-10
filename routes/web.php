@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/penerbitan', [PenerbitanController::class, 'index'])->name('penerbitan.index');
+    Route::get('/penerbitan/{cuti}', [PenerbitanController::class, 'store'])->name('penerbitan.store');
 
     Route::get('/verifikasi-cuti', [PengajuanCutiController::class, 'index'])->name('cuti.verifikasi');
     Route::get('/verifikasi-cuti/edit/{id}', [PengajuanCutiController::class, 'formEdit'])->name('cuti.verifikasi.edit');

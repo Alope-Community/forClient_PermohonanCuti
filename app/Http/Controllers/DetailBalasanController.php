@@ -21,7 +21,6 @@ class DetailBalasanController extends Controller
 
         $file = LaporanCuti::where('cuti_id', $cuti->id)->first();
 
-        // dd($file);
 
         return view('section.detailBalasan.index', [
             'data' => $cuti,

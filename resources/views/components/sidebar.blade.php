@@ -64,12 +64,19 @@
                     </a>
                 </li>
             @endif
-            @if (auth()->user()->role == 'manaejer_sdm')
+            @if (auth()->user()->role == 'manajer_sdm')
                 <li class="sidebar-item">
                     <a href="{{ route('penerbitan.index') }}"
                         class="sidebar-link {{ request()->routeIs('penerbitan.index') ? 'active' : '' }}">
-                        <i class="lni lni-timer"></i>
-                        <span>Penerbitan Surat</span>
+                        <i> <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
+                                <path
+                                    d="M4.75 3.75C3.50736 3.75 2.5 4.75736 2.5 6V21.7182C2.5 22.0141 2.67391 22.2823 2.94401 22.403C3.21411 22.5237 3.52993 22.4743 3.75032 22.277L7.635 18.7984H19.25C20.4926 18.7984 21.5 17.791 21.5 16.5484V6C21.5 4.75736 20.4926 3.75 19.25 3.75H4.75Z"
+                                    fill="#ffffff" />
+                            </svg></i>
+
+
+                        <span class="ml-2">Penerbitan Surat</span>
                     </a>
                 </li>
             @endif

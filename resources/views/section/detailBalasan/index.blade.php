@@ -12,11 +12,11 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label fw-semibold">Status</label>
-               @if ($data->status == 'setujui')
+                @if ($data->status == 'setujui')
                     <div class="form-control bg-light text-success">Disetujui</div>
                 @else
-                     <div class="form-control bg-light text-danger">Ditolak</div>
-               @endif
+                    <div class="form-control bg-light text-danger">Ditolak</div>
+                @endif
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label fw-semibold">Tanggal Mulai</label>
@@ -32,19 +32,31 @@
             </div>
             <div class="col-12 mb-3">
                 <label class="form-label fw-semibold">Balasan Admin</label>
-                <div class="form-control bg-light">
-                    Permohonan cuti Anda telah disetujui. Silakan pastikan pekerjaan ditinggal sudah dialihkan.
+                @if ($data->status == 'setujui')
+                    <div class="form-control bg-light">
+                        Permohonan cuti Anda telah disetujui. Silakan pastikan pekerjaan ditinggal sudah dialihkan.
+                    </div>
+                @else
+                    <div class="form-control bg-light">
+                        Permohonan cuti Anda ditolak oleh admin.
+                    </div>
+                @endif
+            </div>
+            @if ($file && isset($file['file_path']))
+                {{-- Tombol Download PDF --}}
+                <div class="col-12 mt-3">
+                    <a href="{{ asset('storage/' . $file['file_path']) }}" class="btn btn-outline-primary" download>
+                        <i class="bi bi-download me-1"></i> Download PDF
+                    </a>
                 </div>
-            </div>
-
-           @if ($file && isset($file['file_path']))
-             {{-- Tombol Download PDF --}}
-            <div class="col-12 mt-3">
-                <a href="{{ asset('storage/' . $file['file_path']) }}" class="btn btn-outline-primary" download>
-                    <i class="bi bi-download me-1"></i> Download PDF
-                </a>
-            </div>
-           @endif
+            @else
+                {{-- Pesan jika file belum tersedia --}}
+                <div class="col-12 mt-3">
+                    <div class="alert alert-warning" role="alert">
+                        File belum tersedia. Mohon menunggu penerbitan surat oleh Manajer SDM.
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

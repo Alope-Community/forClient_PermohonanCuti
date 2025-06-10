@@ -18,22 +18,22 @@
                     <table id="dataTable" class="table table-bordered table-striped align-middle text-nowrap">
                         <thead class="table-dark">
                             <tr>
-                                <th>Nama</th>
-                                <th>Tanggal Update</th>
+                                <th>Nama Karyawan</th>
+                                <th>Jumlah Cuti</th>
                                 <th>Keterangan</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($riwayatCuti as $item)
+                            @foreach ($data as $item)
                                 <tr>
-                                    <td>{{ $item->cuti->user->name ?? '-' }}</td>
-                                    <td>{{ $item->tanggal_update }}</td>
-                                    <td>{{ $item->keterangan }}</td>
-                                    <td>Diverifikasi oleh: {{ ucwords(str_replace('_', ' ', $item->status)) }}</td>
+                                    <td>{{ $item->user->name ?? '-' }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->tanggal_mulai)->diffInDays(\Carbon\Carbon::parse($item->tanggal_selesai)) + 1 }} Hari</td>
+                                    <td>{{ $item->alasan }}</td>
+                                    <td><span class="text-success">Di{{ $item->status }} </span>oleh: Semua Atasan</td>
                                     <td>
-                                        <a href="{{ route('cuti.verifikasi.edit', $item->id) }}">Lihat Detail</a>
+                                        <a href="{{ route('penerbitan.store', $item->id) }}">Terbitkan Surat</a>
                                     </td>
                                 </tr>
                             @endforeach
