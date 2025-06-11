@@ -28,7 +28,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($data && $data->count())
                                 @foreach ($data as $index => $item)
                                     <tr>
                                         <td>{{ $item->user->name }}</td>
@@ -71,11 +70,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="7" class="text-center">Tidak ada data cuti.</td>
-                                </tr>
-                            @endif
                         </tbody>
                     </table>
                 </div>

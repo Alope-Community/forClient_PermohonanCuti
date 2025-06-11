@@ -162,10 +162,9 @@
                                 <select name="role" id="role" class="form-select" required>
                                     <option value="">Pilih Divisi</option>
                                     <option value="karyawan">Karyawan</option>
-                                    <option value="manajer_unit">Manajer Unit</option>
+                                    {{-- <option value="manajer_unit">Manajer Unit</option>
                                     <option value="manajer_sdm">Manajer SDM</option>
-                                    <option value="direktur_operational">Direktur Operational</option>
-                                    <option value="super_admin">Super Admin</option>
+                                    <option value="direktur_operational">Direktur Operational</option> --}}
                                 </select>
                             </div>
                             <div class="col-12 col-md-6">

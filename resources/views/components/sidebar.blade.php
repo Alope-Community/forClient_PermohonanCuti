@@ -42,7 +42,7 @@
                     <a href="{{ route('pengajuan.riwayat') }}"
                         class="sidebar-link {{ request()->routeIs('pengajuan.riwayat') ? 'active' : '' }}">
                         <i class="lni lni-timer"></i>
-                        <span>Riawayat Pengajuan Cuti</span>
+                        <span>Riwayat Pengajuan Cuti</span>
                     </a>
                 </li>
             @endif
