@@ -7,8 +7,8 @@
                 <x-header-sections />
             </div>
             <div class="col-12 col-md-6 text-md-end">
-                <a href="javascript:void(0)" class="btn btn-sm px-4" data-bs-toggle="modal"
-                    data-bs-target="#tambahModal" style="background-color: #00BFFF">+ Tambah</a>
+                <a href="javascript:void(0)" class="btn btn-sm px-4" data-bs-toggle="modal" data-bs-target="#tambahModal"
+                    style="background-color: #00BFFF">+ Tambah</a>
             </div>
         </div>
 
@@ -162,12 +162,10 @@
                                 <select name="role" id="role" class="form-select" required>
                                     <option value="">Pilih Divisi</option>
                                     <option value="karyawan">Karyawan</option>
-                                    @if (auth()->user()->role == 'super_admin')
-                                        <option value="manajer_unit">Manajer Unit</option>
-                                        <option value="manajer_sdm">Manajer SDM</option>
-                                        <option value="direktur_operational">Direktur Operational</option>
-                                        <option value="super_admin">Super Admin</option>
-                                    @endif
+                                    <option value="manajer_unit">Manajer Unit</option>
+                                    <option value="manajer_sdm">Manajer SDM</option>
+                                    <option value="direktur_operational">Direktur Operational</option>
+                                    <option value="super_admin">Super Admin</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-6">

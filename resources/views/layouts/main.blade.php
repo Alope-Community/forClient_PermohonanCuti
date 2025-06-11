@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>PDAM TIRTA MUSI</title>
+    <link rel="icon" href="{{ asset('image/logo.png') }}" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.lineicons.com/2.0/LineIcons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">

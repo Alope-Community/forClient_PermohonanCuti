@@ -29,7 +29,7 @@ class PenerbitanController extends Controller
         try {
             $data = Cuti::where('id', $cuti)->with('user', 'riwayatCuti')->first();
 
-            $user = $data->user ?? null;
+            $user = auth()->user() ?? null;
 
             $this->simpanKeLaporan($data, $user, $data->status);
 
