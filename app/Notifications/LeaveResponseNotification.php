@@ -14,15 +14,17 @@ class LeaveResponseNotification extends Notification
     protected $leaveResponseId;
     protected $status;
     protected $keterangan;
+    protected $role;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($leaveResponseId, $status, $keterangan)
+    public function __construct($leaveResponseId, $status, $keterangan, $role)
     {
         $this->leaveResponseId = $leaveResponseId;
         $this->status = $status;
         $this->keterangan = $keterangan;
+        $this->role = $role;
     }
 
     /**
@@ -57,6 +59,7 @@ class LeaveResponseNotification extends Notification
             'leave_response_id' => $this->leaveResponseId,
             'status' => $this->status,
             'keterangan' => $this->keterangan,
+            'role' => $this->role
         ];
     }
 }

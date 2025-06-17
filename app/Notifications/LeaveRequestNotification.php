@@ -15,16 +15,18 @@ class LeaveRequestNotification extends Notification
     protected $alasan;
     protected $totalCuti;
     protected $employeeName;
+    protected $role;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($leaveRequestId, $employeeName, $totalCuti, $alasan)
+    public function __construct($leaveRequestId, $employeeName, $totalCuti, $alasan, $role)
     {
         $this->leaveRequestId = $leaveRequestId;
         $this->employeeName = $employeeName;
         $this->totalCuti = $totalCuti;
         $this->alasan = $alasan;
+        $this->role = $role;
     }
 
     /**
@@ -60,6 +62,7 @@ class LeaveRequestNotification extends Notification
             'employee_name' => $this->employeeName,
             'total_cuti' => $this->totalCuti,
             'alasan' => $this->alasan,
+            'role' => $this->role,
         ];
     }
 }

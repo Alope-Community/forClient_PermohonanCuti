@@ -19,6 +19,7 @@
                         <thead class="text-center" style="background-color: #00BFFF">
                             <tr>
                                 <th>Nama</th>
+                                <th>Divisi</th>
                                 <th>Tanggal Update</th>
                                 <th>Keterangan</th>
                                 <th>Status</th>
@@ -29,6 +30,7 @@
                             @foreach ($riwayatCuti as $item)
                                 <tr>
                                     <td>{{ $item->cuti->user->name ?? '-' }}</td>
+                                    <td>{{ $item->cuti->user->divisi ?? '-' }}</td>
                                     <td>{{ $item->tanggal_update }}</td>
                                     <td>{{ $item->keterangan }}</td>
                                     <td>Diverifikasi oleh: {{ ucwords(str_replace('_', ' ', $item->status)) }}</td>

@@ -38,7 +38,8 @@
                                 <th>Email</th>
                                 <th>Telepon</th>
                                 <th>Gender</th>
-                                <th>Divisi</th>
+                                <th>Role</th>
+                                <th>Hak Akses</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -51,6 +52,7 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->no_telepon }}</td>
                                         <td>{{ $item->gender }}</td>
+                                        <td>{{ $item->divisi }}</td>
                                         <td>{{ $item->role }}</td>
                                         <td class="text-center">
                                             <div class="dropdown">
@@ -158,13 +160,23 @@
                                 </select>
                             </div>
                             <div class="col-12 col-md-6">
-                                <label for="role" class="form-label">Divisi</label>
+                                <label for="role" class="form-label">Hak Akses</label>
                                 <select name="role" id="role" class="form-select" required>
-                                    <option value="">Pilih Divisi</option>
+                                    <option value="">Pilih Hak Akses</option>
                                     <option value="karyawan">Karyawan</option>
                                     <option value="manajer_unit">Manajer Unit</option>
                                     <option value="manajer_sdm">Manajer SDM</option>
                                     <option value="direktur_operational">Direktur Operational</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="divisi" class="form-label">Divisi</label>
+                                <select name="divisi" id="divisi" class="form-select" required>
+                                    <option value="">Pilih Divisi</option>
+                                    <option value="pelayanan">Pelayanan</option>
+                                    <option value="distribusi">Distribusi</option>
+                                    <option value="penagihan">Penagihan</option>
+                                    {{-- <option value="direktur_operational">Direktur Operational</option> --}}
                                 </select>
                             </div>
                             <div class="col-12 col-md-6">

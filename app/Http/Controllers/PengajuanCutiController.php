@@ -95,13 +95,12 @@ class PengajuanCutiController extends Controller
 
             $this->markNotificationAsRead($user, $riwayatCuti->id);
 
-            if ($role === 'direktur_operational' || $riwayatCuti->status === 'ditolak') {
-                $this->notifyEmployee($riwayatCuti, $request->status);
-            }
 
             if ($role !== 'direktur_operational' && $request->status === 'setujui') {
                 $this->notifyNextApprover($riwayatCuti, $role);
             }
+
+            $this->notifyEmployee($riwayatCuti, $request->status);
 
             // Pengurangan jatah cuti
             if ($role === 'direktur_operational' && $request->status === 'setujui') {
@@ -181,7 +180,8 @@ class PengajuanCutiController extends Controller
                     $riwayat->id,
                     $cuti->user->name,
                     $totalHariCuti,
-                    $cuti->alasan
+                    $cuti->alasan,
+                    auth()->user()->role
                 ));
             }
 
@@ -219,13 +219,15 @@ class PengajuanCutiController extends Controller
         $karyawan = $riwayatCuti->cuti->user;
         $cuti = $riwayatCuti->cuti;
 
-        $cuti->status = $statusRequest === 'ditolak' ? 'tolak' : $statusRequest;
-        $cuti->save();
-
+        if (auth()->user()->role == 'direktur_operational') {
+            $cuti->status = $statusRequest === 'ditolak' ? 'tolak' : $statusRequest;
+            $cuti->save();
+        }
         $karyawan->notify(new LeaveResponseNotification(
             $cuti->id,
             $cuti->status,
-            $riwayatCuti->keterangan
+            $riwayatCuti->keterangan,
+            auth()->user()->role
         ));
     }
 
@@ -249,7 +251,8 @@ class PengajuanCutiController extends Controller
                 $riwayatCuti->id,
                 $cuti->user->name,
                 $totalHariCuti,
-                $cuti->alasan
+                $cuti->alasan,
+                auth()->user()->role
             ));
         }
     }

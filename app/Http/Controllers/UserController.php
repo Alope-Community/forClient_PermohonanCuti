@@ -32,6 +32,7 @@ class UserController extends Controller
                 'alamat' => 'required|string',
                 'no_telepon' => 'required|string|max:20',
                 'role' => 'required|in:karyawan,asisten_manajer_unit,manajer_unit,asisten_manajer_sdm,manajer_sdm,direktur_operational,super_admin',
+                'divisi' => 'nullable'
             ]);
 
             $user = User::create([
@@ -42,6 +43,7 @@ class UserController extends Controller
                 'alamat' => $validated['alamat'],
                 'no_telepon' => $validated['no_telepon'],
                 'role' => $validated['role'],
+                'divisi' => $validated['divisi']
             ]);
 
             return redirect()->back()->with('success', 'User created successfully.');

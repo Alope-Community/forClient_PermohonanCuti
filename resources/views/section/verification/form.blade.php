@@ -27,6 +27,11 @@
                     </div>
 
                     <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label fw-bold">Divisi Pegawai</label>
+                        <p class="form-control-plaintext">{{ $riwayatCuti->cuti->user->divisi }}</p>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-3">
                         <label class="form-label fw-bold">Tanggal Pengajuan</label>
                         <p class="form-control-plaintext">{{ $riwayatCuti->cuti->created_at }}</p>
                     </div>

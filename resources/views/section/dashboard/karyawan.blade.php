@@ -7,7 +7,9 @@
                 <p>Notifikasi Baru</p>
                 <strong>Status: {{ $notification->data['status'] }}</strong><br>
                 <p>Keterangan: {{ $notification->data['keterangan'] }}</p>
+                <p>Tahap: {{ $notification->data['role'] }}</p>
                 <small>{{ $notification->created_at->diffForHumans() }}</small>
+
             </div>
             <a href="{{ route('pengajuan.balasan', $notification->data['leave_response_id']) }}"
                 class="btn btn-primary mt-2">Lihat Balasan</a>

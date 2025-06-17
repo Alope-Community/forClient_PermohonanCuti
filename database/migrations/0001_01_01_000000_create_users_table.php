@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('alamat');
             $table->string('no_telepon');
+            $table->enum('divisi', ['distribusi', 'pelayanan', 'penagihan'])->nullable();
             $table->enum('role', ['karyawan', 'manajer_unit', 'manajer_sdm', 'direktur_operational', 'super_admin'])->default('karyawan');
             $table->rememberToken();
             $table->timestamps();

@@ -119,6 +119,9 @@ class UsersTableSeeder extends Seeder
 
         foreach ($users as $index => $user) {
             $user = User::create($user);
+            $user->update([
+                'divisi' => 'pelayanan'
+            ]);
 
             JatahCuti::create([
                 'users_id' => $user->id,
