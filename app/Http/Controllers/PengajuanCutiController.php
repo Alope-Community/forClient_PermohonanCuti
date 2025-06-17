@@ -219,10 +219,9 @@ class PengajuanCutiController extends Controller
         $karyawan = $riwayatCuti->cuti->user;
         $cuti = $riwayatCuti->cuti;
 
-        if (auth()->user()->role == 'direktur_operational') {
-            $cuti->status = $statusRequest === 'ditolak' ? 'tolak' : $statusRequest;
-            $cuti->save();
-        }
+        $cuti->status = $statusRequest === 'ditolak' ? 'tolak' : $statusRequest;
+        $cuti->save();
+
         $karyawan->notify(new LeaveResponseNotification(
             $cuti->id,
             $cuti->status,

@@ -19,10 +19,12 @@
                         <thead class="text-center" style="background-color: #00BFFF">
                             <tr>
                                 <th>Nama</th>
+                                <th>Divisi</th>
                                 <th>Tanggal Mulai</th>
                                 <th>Tanggal Selesai</th>
                                 <th>Jumlah Hari</th>
                                 <th>Alasan</th>
+                                <th>Tahap</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -31,6 +33,7 @@
                                 @foreach ($data as $index => $item)
                                     <tr>
                                         <td>{{ $item->user->name }}</td>
+                                        <td>{{ $item->user->divisi }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->tanggal_selesai)->format('d-m-Y') }}</td>
                                         <td>
@@ -38,6 +41,9 @@
                                             Hari
                                         </td>
                                         <td style="white-space: normal; word-break: break-word;">{{ $item->alasan }}</td>
+                                        <td style="white-space: normal; word-break: break-word;">
+                                            {{ $item->riwayatCuti()->first()->status ?? '-' }}
+                                            </td>
                                         <td>
                                             @if ($item->status == 'setujui')
                                                 <span class="badge bg-success">Disetujui</span>

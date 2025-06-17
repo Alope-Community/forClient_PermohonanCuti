@@ -31,14 +31,14 @@
                 <div class="form-control bg-light">{{ $data->alasan }}</div>
             </div>
             <div class="col-12 mb-3">
-                <label class="form-label fw-semibold">Balasan Admin</label>
+                <label class="form-label fw-semibold">Balasan Atasam</label>
                 @if ($data->status == 'setujui')
                     <div class="form-control bg-light">
                         Permohonan cuti Anda telah disetujui. Silakan pastikan pekerjaan ditinggal sudah dialihkan.
                     </div>
                 @else
                     <div class="form-control bg-light">
-                        Permohonan cuti Anda ditolak oleh admin.
+                        Permohonan cuti Anda ditolak oleh atasan.
                     </div>
                 @endif
             </div>

@@ -11,7 +11,7 @@ class RiwayatCutiController extends Controller
     {
         try {
             $data = Cuti::where('users_id', auth()->user()->id)
-                ->with('user')
+                ->with(['user', 'riwayatCuti'])
                 ->get();
 
             // dd($data);
