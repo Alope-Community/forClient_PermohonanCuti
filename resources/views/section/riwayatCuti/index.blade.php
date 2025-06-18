@@ -41,9 +41,16 @@
                                             Hari
                                         </td>
                                         <td style="white-space: normal; word-break: break-word;">{{ $item->alasan }}</td>
+
+                                        @if ($item->riwayatCuti()->first()->status == 'direktur_operational')
+                                            <td style="white-space: normal; word-break: break-word;">
+                                                Telah Di setujui
+                                        </td>
+                                        @else
                                         <td style="white-space: normal; word-break: break-word;">
                                             {{ $item->riwayatCuti()->first()->status ?? '-' }}
-                                            </td>
+                                        </td>
+                                        @endif
                                         <td>
                                             @if ($item->status == 'setujui')
                                                 <span class="badge bg-success">Disetujui</span>

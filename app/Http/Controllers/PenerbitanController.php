@@ -33,7 +33,7 @@ class PenerbitanController extends Controller
 
             $this->simpanKeLaporan($data, $user, $data->status);
 
-            return redirect()->back()->with('success', 'Surat Berhasil Di buat');
+            return redirect()->route('penerbitan.index')->with('success', 'Surat Berhasil Di buat');
         } catch (\Exception $e) {
             dd($e);
             return redirect()->back()->with('error', $e->getMessage());
