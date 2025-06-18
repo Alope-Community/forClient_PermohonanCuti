@@ -31,7 +31,7 @@
                 <div class="form-control bg-light">{{ $data->alasan }}</div>
             </div>
             <div class="col-12 mb-3">
-                <label class="form-label fw-semibold">Balasan Atasam</label>
+                <label class="form-label fw-semibold">Balasan Atasan</label>
                @if (auth()->user()->role == 'manajer_sdm')
                    <div class="form-control bg-light">
                         Permohonan cuti telah disetujui oleh semua atasan. silakan anda untuk terbitkan surat.
