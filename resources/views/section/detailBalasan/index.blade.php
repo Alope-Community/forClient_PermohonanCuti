@@ -34,7 +34,7 @@
                 <label class="form-label fw-semibold">Balasan Atasan</label>
                @if (auth()->user()->role == 'manajer_sdm')
                    <div class="form-control bg-light">
-                        Permohonan cuti telah disetujui oleh semua atasan. silakan anda untuk terbitkan surat.
+                        Permohonan cuti telah disetujui oleh direktur operational. silakan anda untuk terbitkan surat.
                     </div>
                @else
                     @if ($data->status == 'setujui')
