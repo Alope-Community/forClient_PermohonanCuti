@@ -33,7 +33,7 @@
                                     <td>{{ $item->alasan }}</td>
                                     <td><span class="text-success">Di{{ $item->status }} </span>oleh: Semua Atasan</td>
                                     <td>
-                                        <a href="{{ route('penerbitan.store', $item->id) }}">Terbitkan Surat</a>
+                                        <a href="{{ route('pengajuan.balasan', $item->id) }}">Lihat Detail</a>
                                     </td>
                                 </tr>
                             @endforeach
