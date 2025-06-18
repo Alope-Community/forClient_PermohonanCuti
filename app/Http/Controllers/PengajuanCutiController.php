@@ -278,7 +278,7 @@ class PengajuanCutiController extends Controller
             'kode' => $kode,
             'cuti_id' => $cuti->id,
             'nama_karyawan' => $cuti->users_id,
-            'diterbitkan_oleh' => auth()->user()->id,
+            'diterbitkan_oleh' => auth()->user()->name,
             'tanggal_mulai' => $cuti->tanggal_mulai,
             'tanggal_selesai' => $cuti->tanggal_selesai,
             'jumlah_hari' => $jumlah_hari,
