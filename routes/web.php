@@ -16,6 +16,8 @@ Route::redirect('/', 'dashboard');
 Route::middleware('guest')->prefix('auth')->group(function () {
     Route::get('login', [AuthController::class, 'loginPage'])->name('login');
     Route::post('login', [AuthController::class, 'login'])->name('auth.login.post');
+    Route::get('reset-password', [AuthController::class, 'reset'])->name('auth.reset');
+    Route::post('reset-password', [AuthController::class, 'resetPost'])->name('auth.reset.post');
 });
 
 Route::middleware('auth')->group(function () {

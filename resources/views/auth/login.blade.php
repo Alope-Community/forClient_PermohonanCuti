@@ -88,11 +88,13 @@
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <div class="input-group shadow-sm">
-              <input type="password" id="password" name="password" class="form-control" placeholder="********"
-                required />
+              <input type="password" id="password" name="password" class="form-control" placeholder="********" required />
               <span class="input-group-text">
                 <i class="bi bi-eye" id="togglePassword" style="cursor: pointer;"></i>
               </span>
+            </div>
+            <div class="mt-2 text-end">
+              <a href="{{ route('auth.reset') }}" class="text-decoration-none small text-primary">Lupa Password?</a>
             </div>
           </div>
           <div class="d-grid">

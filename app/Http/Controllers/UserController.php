@@ -25,6 +25,7 @@ class UserController extends Controller
         try {
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
+                'nip' => 'required|unique:users,nip,',
                 'gender' => 'required|in:Pria,Wanita',
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|string|min:6',
@@ -37,6 +38,7 @@ class UserController extends Controller
 
             $user = User::create([
                 'name' => $validated['name'],
+                'nip' => $validated['nip'],
                 'gender' => $validated['gender'],
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),

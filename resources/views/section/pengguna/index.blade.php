@@ -35,6 +35,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>NIP</th>
                                 <th>Email</th>
                                 <th>Telepon</th>
                                 <th>Gender</th>
@@ -49,6 +50,7 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $item->name }}</td>
+                                        <td>{{ $item->nip }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->no_telepon }}</td>
                                         <td>{{ $item->gender }}</td>
@@ -142,6 +144,10 @@
                             <div class="col-12 col-md-6">
                                 <label for="name" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="nip" class="form-label">NIP</label>
+                                <input type="text" class="form-control" id="nip" name="nip" required>
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="email" class="form-label">Email</label>

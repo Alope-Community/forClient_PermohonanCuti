@@ -51,6 +51,10 @@
                         <input type="text" name="name" class="form-control" value="{{ $user->name }}" required>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label"><strong>NIP</strong></label>
+                        <input type="text" name="name" class="form-control" value="{{ $user->nip }}" required disabled>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label"><strong>Email</strong></label>
                         <input type="email" name="email" class="form-control" value="{{ $user->email }}" required>
                     </div>
