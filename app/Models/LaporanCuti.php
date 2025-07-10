@@ -24,10 +24,10 @@ class LaporanCuti extends Model
         return $this->belongsTo(User::class, 'nama_karyawan');
     }
 
-    public function diterbitkanOleh()
-    {
-        return $this->belongsTo(User::class, 'diterbitkan_oleh');
-    }
+    // public function diterbitkanOleh()
+    // {
+    //     return $this->belongsTo(User::class, 'diterbitkan_oleh');
+    // }
 
     public function cuti()
     {
