@@ -64,11 +64,11 @@
     <table>
       <tr>
         <td>Nama</td>
-        <td>: {{ $user->nip }}</td>
+        <td>: {{ $user->name }}</td>
       </tr>
       <tr>
-        <td>Nama</td>
-        <td>: {{ $user->name }}</td>
+        <td>NIP</td>
+        <td>: {{ $user->nip }}</td>
       </tr>
       <tr>
         <td>Jabatan</td>
@@ -80,11 +80,11 @@
     <table>
       <tr>
         <td>Nama</td>
-        <td>: {{ $cuti->user->nip }}</td>
+        <td>: {{ $cuti->user->name }}</td>
       </tr>
       <tr>
-        <td>Nama</td>
-        <td>: {{ $cuti->user->name }}</td>
+        <td>NIP</td>
+        <td>: {{ $cuti->user->nip }}</td>
       </tr>
       <tr>
         <td>Posisi</td>
