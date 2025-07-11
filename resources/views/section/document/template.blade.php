@@ -64,6 +64,10 @@
     <table>
       <tr>
         <td>Nama</td>
+        <td>: {{ $user->nip }}</td>
+      </tr>
+      <tr>
+        <td>Nama</td>
         <td>: {{ $user->name }}</td>
       </tr>
       <tr>
@@ -74,6 +78,10 @@
 
     <p>Menerangkan bahwa:</p>
     <table>
+      <tr>
+        <td>Nama</td>
+        <td>: {{ $cuti->user->nip }}</td>
+      </tr>
       <tr>
         <td>Nama</td>
         <td>: {{ $cuti->user->name }}</td>
