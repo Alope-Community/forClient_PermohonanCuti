@@ -128,6 +128,7 @@ class PengajuanCutiController extends Controller
                 'tanggal_mulai' => 'required|date',
                 'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
                 'alasan' => 'required|string',
+                'cuti' => 'required',
                 'user_id' => 'required|exists:users,id'
             ]);
             // Hitung jumlah hari cuti yang diajukan
@@ -160,6 +161,7 @@ class PengajuanCutiController extends Controller
                 'tanggal_mulai' => $request->tanggal_mulai,
                 'tanggal_selesai' => $request->tanggal_selesai,
                 'alasan' => $request->alasan,
+                'cuti' => $request->cuti,
                 'users_id' => $request->user_id
             ]);
 

@@ -41,6 +41,15 @@
                         <input type="date" class="form-control bg-secondary-subtle border border-secondary" id="tanggal_selesai" name="tanggal_selesai">
                     </div>
 
+                    <select name="cuti" id="cuti" class="form-select" required>
+                        <option value="" disabled {{ old('cuti') ? '' : 'selected' }}>Pilih jenis cuti</option>
+                        @foreach (['Tahunan', 'Besar', 'Sakit', 'Melahirkan', 'Alasan Penting', 'Bersama', 'Luar Perusahaan'] as $item)
+                          <option value="{{ $item }}" {{ old('cuti') === $item ? 'selected' : '' }}>
+                            {{ $item }}
+                          </option>
+                        @endforeach
+                    </select>
+
                     <div class="mb-3">
                         <label for="alasan" class="form-label">Alasan</label>
                         <textarea class="form-control bg-secondary-subtle border border-secondary" id="alasan" name="alasan" rows="3"

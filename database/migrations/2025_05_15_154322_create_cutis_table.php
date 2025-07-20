@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->text('alasan');
             $table->enum('status', ['tolak', 'proses' ,'setujui'])->default('proses');
+            $table->enum('cuti', ['Tahunan', 'Besar', 'Sakit', 'Melahirkan', 'Alasan Penting', 'Bersama', 'Luar Perusahaan'])->default('Alasan Penting');
             $table->text('catatan_penolakan')->nullable();
             $table->timestamps();
         });

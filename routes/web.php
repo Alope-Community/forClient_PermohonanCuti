@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailBalasanController;
 use App\Http\Controllers\JatahCutiController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PenerbitanController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\ProfileController;
@@ -45,6 +46,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/riwayat', [RiwayatCutiController::class, 'index'])->name('pengajuan.riwayat');
          Route::get('{cuti}/surat-balasan', [DetailBalasanController::class, 'index'])->name('pengajuan.balasan');
     });
+
+    Route::post('/laporan-perbulan', [LaporanController::class, 'index'])->name('laporan-perbulan');
 
     Route::prefix('user')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('user.profile');

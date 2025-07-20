@@ -10,6 +10,35 @@
         @else
             @include('section.dashboard.all')
 
+            <div class="mt-4 mb-4 w-full ml-4">
+                <form action="{{ route('laporan-perbulan') }}" method="POST" target="_blank" class="row g-3 mb-4">
+                    @csrf
+                    <div class="col-md-4">
+                        <label for="bulan_awal" class="form-label">Bulan Awal</label>
+                        <select name="bulan_awal" id="bulan_awal" class="form-select" required>
+                            @foreach(range(1, 12) as $bulan)
+                                <option value="{{ $bulan }}">{{ DateTime::createFromFormat('!m', $bulan)->format('F') }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="bulan_akhir" class="form-label">Bulan Akhir</label>
+                        <select name="bulan_akhir" id="bulan_akhir" class="form-select" required>
+                            @foreach(range(1, 12) as $bulan)
+                                <option value="{{ $bulan }}">{{ DateTime::createFromFormat('!m', $bulan)->format('F') }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 align-self-end">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-file-earmark-pdf-fill"></i> Export PDF
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card shadow-sm border-0">

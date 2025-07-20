@@ -23,6 +23,7 @@
                                 <th>Tanggal Mulai</th>
                                 <th>Tanggal Selesai</th>
                                 <th>Jumlah Hari</th>
+                                <th>Jenis Cuti</th>
                                 <th>Alasan</th>
                                 <th>Tahap</th>
                                 <th>Status</th>
@@ -40,6 +41,7 @@
                                             {{ \Carbon\Carbon::parse($item->tanggal_mulai)->diffInDays(\Carbon\Carbon::parse($item->tanggal_selesai)) + 1 }}
                                             Hari
                                         </td>
+                                        <td style="white-space: normal; word-break: break-word;">{{ $item->cuti }}</td>
                                         <td style="white-space: normal; word-break: break-word;">{{ $item->alasan }}</td>
 
                                         @if ($item->riwayatCuti()->first()->status == 'direktur_operational')

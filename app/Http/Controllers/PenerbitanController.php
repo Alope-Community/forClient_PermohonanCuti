@@ -56,7 +56,7 @@ class PenerbitanController extends Controller
             'kode' => $kode,
             'cuti_id' => $cuti->id,
             'nama_karyawan' => $cuti->users_id,
-            'diterbitkan_oleh' => auth()->user()->name,
+            'diterbitkan_oleh' => auth()->user()->id,
             'tanggal_mulai' => $cuti->tanggal_mulai,
             'tanggal_selesai' => $cuti->tanggal_selesai,
             'jumlah_hari' => $jumlah_hari,

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('cuti_id')->constrained('cutis')->cascadeOnDelete();
             $table->foreignId('nama_karyawan')->references('id')->on('users')->cascadeOnDelete();
             $table->string('diterbitkan_oleh')->nullable();
-            // $table->foreignId('diterbitkan_oleh')->references('id')->on('users')->cascadeOnDelete();
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
             $table->integer('jumlah_hari');

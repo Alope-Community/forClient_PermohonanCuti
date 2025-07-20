@@ -48,13 +48,13 @@
                 @endif
                @endif
             </div>
-            @if (auth()->user()->role == 'manajer_sdm')
-                <div class="col-12 mt-3">
-                    <a href="{{ route('penerbitan.store', $data->id) }}" class="btn btn-primary">
-                        <i class="bi bi-file-earmark-text me-1"></i> Penerbitan Surat
-                    </a>
-                </div>
-            @else
+                @if (auth()->user()->role == 'manajer_sdm')
+                    <div class="col-12 mt-3">
+                        <a href="{{ route('penerbitan.store', $data->id) }}" class="btn btn-primary">
+                            <i class="bi bi-file-earmark-text me-1"></i> Penerbitan Surat
+                        </a>
+                    </div>
+                @else
                 @if ($file && isset($file['file_path']))
                     {{-- Tombol Download PDF --}}
                     <div class="col-12 mt-3">

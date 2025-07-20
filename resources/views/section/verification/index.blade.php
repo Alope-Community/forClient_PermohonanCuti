@@ -22,6 +22,7 @@
                                 <th>Divisi</th>
                                 <th>Tanggal Update</th>
                                 <th>Keterangan</th>
+                                <th>Jenis Cuti</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -33,6 +34,7 @@
                                     <td>{{ $item->cuti->user->divisi ?? '-' }}</td>
                                     <td>{{ $item->tanggal_update }}</td>
                                     <td>{{ $item->keterangan }}</td>
+                                    <td>{{ $item->cuti->cuti }}</td>
                                     <td>Diverifikasi oleh: {{ ucwords(str_replace('_', ' ', $item->status)) }}</td>
                                     <td>
                                         <a href="{{ route('cuti.verifikasi.edit', $item->id) }}">Lihat Detail</a>
